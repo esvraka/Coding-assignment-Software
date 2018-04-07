@@ -1,0 +1,60 @@
+package ProjectTwoPointTwo;
+/**
+ * The VSMTester class takes a query and normalizes it then returns a set of required information.
+ * 
+ * @author (Edwin Svraka) 
+ * @version (05/01/17)
+ */
+public class VSMTester
+{
+    // instance variables 
+    private int QueryId;
+    private int iterationNum;
+    private Document docName;
+    private int rank;
+    private int simScore;
+    private String TeamId;
+    private Document docs;
+
+    /**
+     * The VSMTester Constructor method sets th eparameters to their default values.
+     */
+    public VSMTester()
+    {
+        QueryId = 1;
+        iterationNum = 0;
+        rank = 0;
+        simScore = 0;
+        TeamId = "Edwin Svraka";
+    }
+
+    /**
+     * getDocname return the name of the document.
+     * @param docName- The name of the document.
+     * @return Document- The name of the document. 
+     */
+    public Document getDocname(Document docName)
+    {
+        return docName;
+    }
+    
+    /**
+     * getDocSize method returns the amount of the documents taken in.
+     * @return double- The number of docs.
+     */
+    public double getDocSize()
+    {
+        double size;
+        size = docs.getTotalDocs();
+        return size;
+    }
+    
+    /**
+     * The getName method returns the Teams name or the programmers name.
+     * @return String- The name.
+     */
+    public String getName()
+    {
+        return TeamId;
+    }
+}
