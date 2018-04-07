@@ -1,0 +1,247 @@
+package ProjectTwoPointTwo;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.*;
+import java.util.*;
+/**
+ * Write a description of class VSMTester here.
+ * 
+ * @author (Edwin Svraka) 
+ * @version (05/01/17)
+ */
+public class TextAnalyzer
+{
+    // instance variables - replace the example below with your own
+    private int x;
+    private Set<String> sWords;
+    private String Term; 
+
+    /**
+     * Constructor for objects of class VSMTester
+     */
+    public TextAnalyzer()
+    {
+    }
+    
+    /**
+     * The ParsingLines method removes all punctuation front the text.
+     * @param text- The text you wish to act on. 
+     * @return String- The text with punctuation removed. 
+     */
+    public String ParsingLines(String text)
+    {
+        text.replaceAll("\\p{Punct}", "");
+        return text;
+    }
+
+     /**
+     * The ToLower method converts all the letters of a text to lower case.
+     * @param text- The text you wish to act on. 
+     * @return String- The text modified with all lower case letters. 
+     */
+    public String ToLower(String text)
+    {
+        text.toLowerCase();
+        return text;
+    }
+    
+    /**
+     * The RemStopWords method removes all the stop words front the text.
+     * @param text- The text you wish to act on. 
+     * @return String- The text with stop words removed. 
+     */
+    public ArrayList RemStopWords(String text)
+    {
+        String words[]=text.split("[\\s]+");
+        ArrayList<String> output = new ArrayList<>();
+        for(int i=0; i<words.length; i++)
+        {
+            if(!sWords.contains(words[i]))
+            {
+                output.add(words[i]);
+            }
+        }
+        return output;
+    }
+    
+    /**
+     * The stopW method adds all the stop words to an list.
+     * @return (void) - Returns nothing.
+     */
+     public void stopW()
+    {
+        sWords.add("a");
+        sWords.add("about");
+        sWords.add("above");
+        sWords.add("after"); 
+        sWords.add("against");
+        sWords.add("all"); 
+        sWords.add("am");
+        sWords.add("an");
+        sWords.add("and");
+        sWords.add("any");
+        sWords.add("are");
+        sWords.add("aren't"); 
+        sWords.add("as");
+        sWords.add("at"); 
+        sWords.add("be");
+        sWords.add("because"); 
+        sWords.add("been");
+        sWords.add("before"); 
+        sWords.add("being");
+        sWords.add("below"); 
+        sWords.add("between");
+        sWords.add("both");
+        sWords.add("but");
+        sWords.add("by");
+        sWords.add("can't");
+        sWords.add("cannot");
+        sWords.add("could");
+        sWords.add("couldn't");
+        sWords.add("did");
+        sWords.add("didn't"); 
+        sWords.add("do");
+        sWords.add("does");
+        sWords.add("doesn't");
+        sWords.add("doing"); 
+        sWords.add("don't");
+        sWords.add("down");
+        sWords.add("during");
+        sWords.add("each"); 
+        sWords.add("few");
+        sWords.add("for");
+        sWords.add("from");
+        sWords.add("further"); 
+        sWords.add("had");
+        sWords.add("hadn't");
+        sWords.add("has");
+        sWords.add("hasn't"); 
+        sWords.add("have");
+        sWords.add("haven't");
+        sWords.add("having");
+        sWords.add("he"); 
+        sWords.add("he'd");
+        sWords.add("he'll");
+        sWords.add("he's"); 
+        sWords.add("her");
+        sWords.add("here");
+        sWords.add("here's"); 
+        sWords.add("hers");
+        sWords.add("herself");
+        sWords.add("him"); 
+        sWords.add("himself");
+        sWords.add("his");
+        sWords.add("how"); 
+        sWords.add("how's");
+        sWords.add("i");
+        sWords.add("i'd"); 
+        sWords.add("i'll");
+        sWords.add("i'm");
+        sWords.add("i've");
+        sWords.add("if");
+        sWords.add("in");
+        sWords.add("into");
+        sWords.add("is");
+        sWords.add("isn't");
+        sWords.add("it");
+        sWords.add("it's");
+        sWords.add("its");
+        sWords.add("itself");
+        sWords.add("let's");
+        sWords.add("me");
+        sWords.add("more");
+        sWords.add("most");
+        sWords.add("mustn't");
+        sWords.add("my");
+        sWords.add("myself");
+        sWords.add("no");
+        sWords.add("nor");
+        sWords.add("not");
+        sWords.add("of");
+        sWords.add("off");
+        sWords.add("on");
+        sWords.add("once");
+        sWords.add("only");
+        sWords.add("or");
+        sWords.add("other");
+        sWords.add("ought");
+        sWords.add("our");
+        sWords.add("ours");
+        sWords.add("ourselves");
+        sWords.add("out");
+        sWords.add("over");
+        sWords.add("own");
+        sWords.add("same");
+        sWords.add("shan't");
+        sWords.add("she");
+        sWords.add("she'd");
+        sWords.add("she'll");
+        sWords.add("she's");
+        sWords.add("should");
+        sWords.add("shouldn't");
+        sWords.add("so");
+        sWords.add("some");
+        sWords.add("such");
+        sWords.add("than");
+        sWords.add("that");
+        sWords.add("that's");
+        sWords.add("the");
+        sWords.add("their");
+        sWords.add("theirs");
+        sWords.add("them");
+        sWords.add("themselves");
+        sWords.add("then");
+        sWords.add("there");
+        sWords.add("there's");
+        sWords.add("these");
+        sWords.add("they");
+        sWords.add("they'd");
+        sWords.add("they'll");
+        sWords.add("they're");
+        sWords.add("they've");
+        sWords.add("this");
+        sWords.add("those");
+        sWords.add("through");
+        sWords.add("to");
+        sWords.add("too");
+        sWords.add("under");
+        sWords.add("until");
+        sWords.add("up");
+        sWords.add("very");
+        sWords.add("was");
+        sWords.add("wasn't");
+        sWords.add("we");
+        sWords.add("we'd");
+        sWords.add("we'll");
+        sWords.add("we're");
+        sWords.add("we've");
+        sWords.add("were");
+        sWords.add("weren't");
+        sWords.add("what");
+        sWords.add("what's");
+        sWords.add("when");
+        sWords.add("when's");
+        sWords.add("where");
+        sWords.add("where's");
+        sWords.add("which");
+        sWords.add("while");
+        sWords.add("who");
+        sWords.add("who's");
+        sWords.add("whom");
+        sWords.add("why");
+        sWords.add("why's");
+        sWords.add("with");
+        sWords.add("won't");
+        sWords.add("would");
+        sWords.add("wouldn't");
+        sWords.add("you");
+        sWords.add("you'd");
+        sWords.add("you'll");
+        sWords.add("you're");
+        sWords.add("you've");
+        sWords.add("your");
+        sWords.add("yours");
+        sWords.add("yourself");
+        sWords.add("yourselves");
+    }
