@@ -1,0 +1,82 @@
+
+package ProjectTwoPointTwo;
+import java.io.*;
+import java.util.*;
+/**
+ * The Term class represent the term we are defining, and gives it a doc, TermFrequency,
+ * firstOccurance, and a word variable.
+ * 
+ * @author (Edwin Svraka) 
+ * @version (03/10/17)
+ */
+
+public class Term
+{
+    private Document doc;
+    private int Termfrequency;
+    private int firstOccurance;
+    private String word;
+
+    /**
+     * The term constructor sets the term classes default variables to default values.
+     */
+    public Term()
+    {
+       firstOccurance = 1;
+       word = null;
+       Termfrequency= 1;
+       doc =null;
+
+    }
+    
+    /**
+     * The getWord method returns the word we are using. 
+     * @param String word
+     * @return String word
+     */
+    public String getWord(String word)
+    {
+        return word;
+    }
+    
+     /**
+     * The setWord method sets the paramter string Word equal to word. 
+     * @param String word
+     * @return String word
+     */
+    public void setWord(String word)
+    {
+        this.word = word;
+    }
+    
+     /**
+     * The getFrequency method returns the term frequency of the term. 
+     * @param int TermFrequency
+     * @return int TermFrequency
+     */
+    public int getFrequency(int Termfrequency)
+    {
+        return Termfrequency;
+    }
+    
+     /**
+     * The getFirstOccurance method returns the first occurance of the term. 
+     * @param int firstOccurance
+     * @return int firstOccurance
+     */
+    public int getFirstOccurance(int firstOccurance)
+    {
+       return firstOccurance; 
+    }
+    
+     /**
+     * The getDoc method returns the Document we are in. 
+     * @param Document doc
+     * @return Document doc
+     */
+    public Document getDoc(Document doc)
+    {
+       return doc; 
+    }
+ 
+}
