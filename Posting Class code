@@ -1,0 +1,69 @@
+
+package ProjectTwoPointTwo;
+import java.util.*;
+import java.io.*;
+/**
+ * Posting class sets up the array lists by giving them docId, termFrequency, and
+ * first Occurance variables. .
+ * 
+ * @author (Edwin Svraka) 
+ * @version (03/10/17)
+ */
+public class Posting implements Serializable
+{ 
+    // instance variables 
+    String docId;
+    int termFrequency;
+    int firstOccurance;
+    
+    /**
+     * The posting constructor sets all of the instance variables with default values. 
+     */
+    public Posting()
+    {
+        docId = null;
+        termFrequency = 1;
+        firstOccurance = 1;
+    }
+     
+    /**
+     * setdocId takes String docId and sets it equal to the docId above.
+     * @param String docId
+     * @return void
+     */
+    public void setdocId(String docId)
+    {
+        this.docId = docId;
+    }
+    
+    /**
+     * getdocId returns docId.
+     * @param String docId
+     * @return String docId
+     */
+    public String getdocId(String docId)
+    {
+        return docId;
+    }
+    
+    /**
+     * settermFrequency takes int termFrequency and sets it equal to the termFrequency above.
+     * @param int termFrequency
+     * @return void
+     */
+    public void settermFrequeny(int termFrequency)
+    {
+        this.termFrequency = termFrequency;
+        
+    }
+    
+    /**
+     * gettermFrequency takes termFrequency and returns it. 
+     * @param int termFrequency
+     * @return int termFrequency
+     */
+    public int gettermFrequency(int termFrequency)
+    {
+        return termFrequency;
+    }
+}
