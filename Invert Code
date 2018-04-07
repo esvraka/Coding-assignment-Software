@@ -1,0 +1,136 @@
+package ProjectTwoPointTwo;
+import java.util.*;
+import java.io.*;
+import java.lang.Math;
+/**
+ * Invert class performs calculations.
+ * 
+ * 
+ * @author (Edwin Svraka) 
+ * @version (05/01/17)
+ */
+public class Invert
+{
+    // instance variables - replace the example below with your own
+    String term;
+    private Document corpus;
+    private Document doc;
+    private double Termfrequency;
+    private int firstOccurance;
+    private double docFrequency;
+    private double idf;
+    private double numDocs;
+    private double termWeight;
+    private double Dl;
+
+    /**
+     * Constructor for objects of class Invert
+     */
+    public Invert()
+    {
+    }
+
+    /**
+     * The calculations method performs all of the mathmatical functions such as 
+     * calculating the term frequency, term weight, the logged IDF, the document Length.
+     * @return (void) - Returns nothing.
+     */
+    public void calculations()
+    {
+        double myTermfrequency = Termfrequency; 
+        myTermfrequency = Math.log(myTermfrequency);
+        idf = Math.log(numDocs/docFrequency);
+        termWeight = myTermfrequency * idf;
+        Dl = Math.sqrt(termWeight);
+    }
+}
+
+VSM Searcher Code: 
+
+package ProjectTwoPointTwo;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.*;
+import java.util.*;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+/**
+ * VSMSearcher class.
+ * 
+ * @author (Edwin Svraka) 
+ * @version (05/01/17)
+ */
+public class VSMSearcher
+{
+    // instance variables - replace the example below with your own
+    private String content;
+    public String[] docs;
+
+    /**
+     * VSMSearcher Constructor method sets content to its default value.
+     */
+    public VSMSearcher()
+    {
+        content = null;
+    }
+    
+    /**
+     * The fileme method reads in a file and puts the characters in a list.
+     * @param filename- Name of the file.
+     * @return String- The content of the file. 
+     */
+    public String fileme(String filename)
+    {
+        File file = new File(filename); 
+        FileReader reader = null;
+        try {
+            reader = new FileReader(file);
+            char[] chars = new char[(int) file.length()];
+            reader.read(chars);
+            content = new String(chars);
+
+            reader.close();
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        return content;
+    }
+
+    /**
+     * The similarityScore method sets calculates the similarity score. 
+     * @param weightedTerm- The wirghted term value.
+     * @return int- The similarity Score.
+     */
+    public int similarityScore(int weightedTerm)
+    {
+        int SScore = 0;
+        SScore = weightedTerm / content.length();
+        return SScore; 
+    }
+
+    /**
+     * The setRanking method ranks each score.
+     * @param SScore- The similarity score value.
+     * @return (void)- Returns nothing. 
+     */
+    public void setRanking(int SScore)
+    {
+        PriorityQueue<Integer> rank = new PriorityQueue<Integer>();
+        for(int i = 0; i < content.length(); i++)
+        {
+            if(SScore > 0)
+            {
+                rank.add(SScore); 
+            }
+        }
+        int curr = 0;
+       // for(int z= 0; z<rank.size(); z++)
+       // {
+       //     if(rank[z+1].value() > rank[z].value())
+       //     {
+       //         curr = rank[z].value(); 
+       //         rank[z].value() = rank[z+1].value();
+       //         rank[z+1].value() = curr; 
+            }
+        }
