@@ -1,0 +1,107 @@
+package ProjectTwoPointTwo;
+import java.util.*;
+import java.io.*;
+/**
+ * Document is a class that sets up a document object and gives it the variables docId,
+ * docName, docSize, and corpus.
+ * 
+ * @author (Edwin Svraka) 
+ * @version (03/10/17)
+ */
+public class Document implements Serializable
+{
+    String docId; 
+    String docName;
+    double docSize;
+    double corpus;
+
+    /**
+     * Constructor for objects of class Document that sets docId, docName, and docSize
+     * to default values.
+     */
+    public Document()
+    {
+        docId = null;
+        docName = null;
+        docSize = 1.0;
+
+    }
+
+    /**
+     * sets the parameter docId equal to the docId.
+     * @param String docId
+     * @return void
+     */
+    public void setDocId(String docId)
+    {
+        this.docId = docId;
+    }
+
+    /**
+     * returns the docId as a string
+     * @param String docId
+     * @return String docId
+     */
+    public String getDocId(String docId)
+    {
+        return docId;
+    }
+
+    /**
+     * sets the parameter docname equal to the docname.
+     * @param String docName
+     * @return void
+     */
+    public void setDocName(String docName)
+    {
+        this.docId = docId;
+    }
+    
+    /**
+     * returns the docName as a string
+     * @param String docName
+     * @return String docName
+     */
+    public String getDocName(String docName)
+    {
+        return docName;
+    }
+
+    /**
+     * sets the parameter docSize equal to the docSize.
+     * @param double docSize
+     * @return void
+     */
+    public void setSize(double docSize)
+    {
+        this.docSize = docSize;
+    }
+    
+    /**
+     * returns the size of the document as a double
+     * @param String docSize
+     * @return String docSize
+     */
+    public double getSize(double docSize)
+    {
+        return docSize;
+    }
+    
+    /**
+     * getTotalDocs returns the total number of docs.
+     * @return double- Number of documents. 
+     */
+    public double getTotalDocs()
+    {
+        return corpus; 
+    }
+    
+    /**
+     * setDocs method allows the user to enter the amount of documents they want to run through.
+     * @param corpus- The number of documents. 
+     */
+    public void setDocs(double corpus)
+    {
+        this.corpus = corpus; 
+    }
+}
